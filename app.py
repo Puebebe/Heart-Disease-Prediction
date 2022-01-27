@@ -10,15 +10,15 @@ def main():
 
     with st.form(key='my_form'):
         age = st.slider(label='Age', value=1, min_value=1, max_value=100)
-        sex = st.selectbox(label='Sex', options=['M', 'F'])
-        chest_pain_type = st.selectbox(label='Chest-pain Type', options=['ASY' 'ATA' 'NAP' 'TA'])
+        sex = st.selectbox(label='Sex', options=('M', 'F'))
+        chest_pain_type = st.selectbox(label='Chest-pain Type', options=('ASY', 'ATA', 'NAP', 'TA'))
         resting_bp = st.number_input(label='Resting Blood Pressure')
         cholesterol = st.number_input(label='Cholesterol')
         fasting_bs = st.selectbox(label='Fasting Blood Sugar', options=[0, 1])
-        resting_ecg = st.selectbox(label='RestingECG ', options=['LVH' 'Normal' 'ST'])
+        resting_ecg = st.selectbox(label='RestingECG ', options=('LVH', 'Normal', 'ST'))
         max_heart_rate = st.number_input(label='Max Heart Rate')
-        exercise_angina = st.selectbox(label='Exercise Angina', options=['N' 'Y'])
-        st_slope = st.selectbox(label='ST Slope', options=['Down' 'Flat' 'Up'])
+        exercise_angina = st.selectbox(label='Exercise Angina', options=('N', 'Y'))
+        st_slope = st.selectbox(label='ST Slope', options=('Down', 'Flat', 'Up'))
         submit = st.form_submit_button('Submit')
     
         if submit:
