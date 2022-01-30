@@ -6,8 +6,8 @@ model_pkl = pickle.load(open('model.pkl','rb'))
 le_dict_pkl = pickle.load(open('le_dict.pkl', 'rb'))
 
 def main():
-    st.set_page_config(page_title='Heart Disease Prediction')
-    st.header('Heart Disease Prediction')
+    st.set_page_config(page_title='Heart Disease Prediction', page_icon=":broken_heart:")
+    st.header('🫀 Heart Disease Prediction')
 
     with st.form(key='my_form'):
         age = st.slider(label='Age', value=1, min_value=1, max_value=100)
@@ -44,7 +44,9 @@ def main():
                 data[col] = le_dict_pkl[col].transform(data[col])
                 
             prediction = model_pkl.predict(data)[0]
+            s_confidence = model_pkl.predict_proba(data)
             st.subheader('Is individual suffering from a heart disease: {0}'.format('Yes' if prediction == 1 else 'No'))
+            st.subheader("Prediction confidence {0:.2f} %".format(s_confidence[0][prediction] * 100))
             
     st.caption('s18581, s18490, s19978')
         
